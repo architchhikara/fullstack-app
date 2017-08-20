@@ -1,11 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const color = Math.random() > 0.5 ? 'green':'red';
+import App from './components/App';
 
 ReactDOM.render(
-  <h2 className="text-center" style= {{color: color}}>
-    Hello Reactaaaa - {Math.random()}
-  </h2>,
+  <App />,
   document.getElementById('root')
 );
