@@ -1,9 +1,18 @@
 import config from './config';
 import apiRouter from './api';
-import fs from 'fs';
+import sassMiddleWare from 'node-sass-middleware';
+import path from 'path';
+
+//For file system
+// import fs from 'fs';
 
 import express from 'express';
 const server = express();
+
+server.use(sassMiddleWare({
+  src: path.join(__dirname, 'sass'),
+  dest: path.join(__dirname, 'public')
+}));
 
 server.set('view engine', 'ejs');
 
