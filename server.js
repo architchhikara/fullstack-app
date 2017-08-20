@@ -5,22 +5,16 @@ import fs from 'fs';
 import express from 'express';
 const server = express();
 
+server.set('view engine', 'ejs');
+
 server.get('/', (req, res) => {
-  res.send('Hello Express \n');
+  res.render('index', {
+    content: 'Express to EJS'
+  });
 });
 
 server.use('/api', apiRouter);
 server.use(express.static('public'));
-
-// server.get('/about.html', (req, res) => {
-//   res.send('This is about nothing \n');
-// });
-
-// server.get('/about.html', (req, res) => {
-//   fs.readFile('./about.html', (err, data) => {
-//     res.send(data.toString());
-//   });
-// });
 
 server.listen(config.port, () => {
   console.info('Express is ears on port ', config.port);
